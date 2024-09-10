@@ -14,8 +14,6 @@ declare(strict_types=1);
 
 namespace Client\BasePlugin\Tests\Unit;
 
-use Client\BasePlugin\Tests\Unit\TestCase;
-
 class Test extends TestCase
 {
 	/**
