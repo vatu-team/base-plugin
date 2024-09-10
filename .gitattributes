@@ -24,3 +24,13 @@
 /phpstan.neon.dist	linguist-vendored
 /phpunit.xml	linguist-vendored
 /phpunit.xml.dist	linguist-vendored
+
+# Ignore file when exporting
+.devcontainer	export-ignore
+.github	export-ignore
+packages	export-ignore
+tools	export-ignore
+.wp-env.json	export-ignore
+captainhook.json	export-ignore
+composer.lock	export-ignore
+package-lock.json	export-ignore
