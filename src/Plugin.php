@@ -27,6 +27,8 @@ final class Plugin extends ServiceLocator implements Main
 	 * @var array<string>
 	 */
 	protected array $provider_collection = [
+		Application\ApplicationProvider::class,
 		Domain\ExampleProvider::class,
+		Domain\ExampleBlocks\ExampleBlocksProvider::class,
 	];
 }

@@ -20,6 +20,7 @@
 	<exclude-pattern>*/tools/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/vendor_prefixed/*</exclude-pattern>
+		<exclude-pattern>./src/Domain/**/Blocks/**/build/*</exclude-pattern>
 
 	<!-- Ignore empty files. -->
 	<rule ref="Internal.NoCodeFound">

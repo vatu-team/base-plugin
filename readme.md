@@ -23,8 +23,8 @@ npm install && composer install
 
 ### Development
 
-- `npm run start` – Watch and compile the resources
-- `npm run build` – Build a production ready instance of the resources
+- `npm run start` – Watch and compiles the blocks
+- `npm run build` – Build a production ready instance of the blocks
 
 ## Test
 

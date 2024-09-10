@@ -36,3 +36,6 @@ error_log
 
 ## Assets
 /assets/*
+
+## Compiled Files
+src/Domain/**/Blocks/**/build/*
