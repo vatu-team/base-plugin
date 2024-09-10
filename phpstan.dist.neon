@@ -1,0 +1,29 @@
+parameters:
+
+  level: 8
+
+  inferPrivatePropertyTypeFromConstructor: true
+
+  parallel:
+    maximumNumberOfProcesses: 8
+
+  paths:
+    - tests/
+    - src/
+
+
+  excludePaths:
+    analyse:
+      - */vendor/*
+      - */vendor_prefixed/*
+      - */tests/*
+      - */tools/*
+
+  bootstrapFiles:
+    - tests/php/constants.php
+
+  scanFiles:
+    - %rootDir%/../../php-stubs/wordpress-stubs/wordpress-stubs.php
+    - %rootDir%/../../php-stubs/wp-cli-stubs/wp-cli-stubs.php
+    - %rootDir%/../../php-stubs/wp-cli-stubs/wp-cli-commands-stubs.php
+    - %rootDir%/../../php-stubs/wp-cli-stubs/wp-cli-i18n-stubs.php

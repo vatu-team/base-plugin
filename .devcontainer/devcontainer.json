@@ -1,0 +1,75 @@
+{
+    "name": "vatu/base-plugin",
+    "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+    "mounts": [
+        "source=${localEnv:HOME}/.composer,target=/home/vscode/.composer,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.npm,target=/home/vscode/.npm,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.wp-cli,target=/home/vscode/.wp-cli,type=bind,consistency=cached"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2.4.2": {
+            "installZsh": "true",
+            "username": "vscode",
+            "uid": "1000",
+            "gid": "1000",
+            "upgradePackages": "true"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1.0.11": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2.10.1": {
+            "version": "latest",
+            "enableNonRootDocker": "true",
+            "moby": "true"
+        },
+        "ghcr.io/devcontainers/features/git:1.2.0": {
+            "version": "latest",
+            "ppa": "false"
+        },
+        "ghcr.io/devcontainers/features/php:1.1.2": {
+            "version": "8.3",
+            "installComposer": true
+        },
+        "ghcr.io/devcontainers/features/node:1.4.0": {
+            "version": "20"
+        }
+    },
+    "overrideFeatureInstallOrder": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode.makefile-tools",
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "ms-vscode.remote-explorer",
+                "xdebug.php-debug"
+            ],
+            "settings": {
+                "files.exclude": {
+                    ".composer": true,
+                    ".npm": true,
+                    ".wp-cli": true
+                },
+                "files.watcherExclude": {
+                    "**/.composer": true,
+                    "**/.git": true,
+                    "**/.npm": true,
+                    "**/.wp-cli": true,
+                    "**/vendor": true,
+                    "**/node_modules": true
+                },
+                "git.ignoreLimitWarning": true,
+                "php.validate.executablePath": "/usr/local/php/current/bin/php"
+            }
+        }
+    },
+    "forwardPorts": [
+        8888,
+        8889
+    ],
+    "postStartCommand": [
+        ".devcontainer/post-start.sh"
+    ],
+    "remoteUser": "vscode"
+}

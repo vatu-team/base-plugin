@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<ruleset name="Vatu">
+
+	<description>Project Coding Standards.</description>
+
+	<!--
+	Prevent errors caused by WordPress Coding Standards not supporting PHP 8.0+.
+	See https://github.com/WordPress/WordPress-Coding-Standards/issues/2035
+	-->
+	<ini name="error_reporting" value="E_ALL &#38; ~E_DEPRECATED" />
+
+	<config name="testVersion" value="8.3" />
+	<config name="minimum_supported_wp_version" value="6.5" />
+
+	<file>./tests</file>
+	<file>./src</file>
+
+	<!-- Exclude source code we do not control. -->
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/tools/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/vendor_prefixed/*</exclude-pattern>
+
+	<!-- Ignore empty files. -->
+	<rule ref="Internal.NoCodeFound">
+		<severity>0</severity>
+	</rule>
+
+	<!-- Set default config. Can be overwritten. -->
+	<config name="colors" value="1" />
+	<arg value="sp" />
+	<arg name="parallel" value="8"/>
+
+	<!-- Only test PHP files. -->
+	<arg name="extensions" value="php" />
+
+	<rule ref="PSR12">
+		<!-- Modified to include white space for better readability. -->
+		<exclude name="Generic.WhiteSpace.DisallowTabIndent" />
+		<exclude name="Generic.Commenting.DocComment.MissingShort" />
+		<exclude name="PEAR.Commenting.FileComment.MissingCategoryTag" />
+		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace" />
+		<exclude name="PSR12.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace" />
+		<exclude name="PSR2.Methods.FunctionCallSignature.SpaceAfterOpenBracket" />
+		<exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket" />
+	</rule>
+
+	<rule ref="WordPress-Core">
+
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="" />
+				<element value="base-plugin" />
+			</property>
+		</properties>
+
+		<!-- Excludes as to adhear to PSR-12. -->
+		<exclude name="Generic.Files.LineLength.TooLong" />
+		<exclude name="Generic.Classes.OpeningBraceSameLine.BraceOnNewLine" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+		<exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid" />
+		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
+		<exclude name="WordPress.NamingConventions.ValidHookName.NotLowercase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase" />
+		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine" />
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen" />
+		<exclude name="Squiz.Commenting.ClassComment.Missing" />
+		<exclude name="Squiz.Commenting.VariableComment.Missing" />
+		<exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis" />
+
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.OpenBraceNotSameLine" />
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.ExtraSpaceAfterCloseParenthesis" />
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeOpenParenthesis" />
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterStructureOpen" />
+
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found" />
+	</rule>
+
+	<rule ref="Generic.PHP.NoSilencedErrors"/>
+	<rule ref="Squiz.PHP.DiscouragedFunctions">
+		<properties>
+			<!--
+			* env() is for frameworks only
+			* ini_set() - PHP environment belongs to the server
+			* compact(), list() and extract() convert array<->value
+			* eval() is dangerous!
+			* echo, print and print_r() disturb templating
+			* var_dump() is a debugger function
+			* error_log() has special use
+			* define() is for global constants
+			-->
+				<property name="forbiddenFunctions" type="array">
+						<element key="goto" value="null"/>
+						<element key="env" value="null"/>
+						<element key="ini_set" value="null"/>
+						<element key="compact" value="null"/>
+						<element key="list" value="null"/>
+						<element key="extract" value="null"/>
+						<element key="eval" value="null"/>
+						<element key="echo" value="null"/>
+						<element key="print" value="null"/>
+						<element key="print_r" value="null"/>
+						<element key="var_dump" value="null"/>
+						<element key="error_log" value="null"/>
+						<element key="define" value="null"/>
+				</property>
+			</properties>
+	</rule>
+
+	<!-- Arrays. -->
+	<rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation" />
+	<rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace">
+		<properties>
+			<property name="spacesAroundBrackets" value="1"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma" />
+
+	<!-- Classes. -->
+	<rule ref="SlevomatCodingStandard.Classes.BackedEnumTypeSpacing">
+		<properties>
+			<property name="spacesCountBeforeColon" value="0" />
+			<property name="spacesCountBeforeType" value="0" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.ClassLength">
+		<type>warning</type>
+		<property name="maxLinesLength" value="250" />
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.ClassConstantVisibility" />
+	<rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing">
+		<properties>
+			<property name="linesCountBetweenMembers" value="1" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.ClassStructure">
+		<properties name="groups" type="array">
+			<element value="uses" />
+			<element value="enum cases"/>
+			<element value="public constants"/>
+			<element value="constants"/>
+			<element value="public properties, protected properties, private properties"/>
+			<element value="constructor"/>
+			<element value="all public methods"/>
+			<element value="methods"/>
+			<element value="magic methods"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
+		<properties>
+			<property name="linesCountAfterOpeningBrace" value="0" />
+			<property name="linesCountBeforeClosingBrace" value="0" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.MethodSpacing">
+		<properties>
+			<property name="minLinesCount" value="1" />
+			<property name="maxLinesCount" value="1" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.ModernClassNameReference" />
+	<rule ref="SlevomatCodingStandard.Classes.PropertyDeclaration" />
+	<rule ref="SlevomatCodingStandard.Classes.PropertySpacing">
+		<properties>
+			<property name="minLinesCountBeforeWithComment" value="1" />
+			<property name="maxLinesCountBeforeWithComment" value="1" />
+			<property name="minLinesCountBeforeWithoutComment" value="1" />
+			<property name="maxLinesCountBeforeWithoutComment" value="1" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.RequireMultiLineMethodSignature">
+		<properties>
+			<property name="minLineLength" value="120" />
+		</properties>
+	</rule>
+	<!-- <rule ref="SlevomatCodingStandard.Classes.RequireSelfReference" /> -->
+	<rule ref="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming" />
+	<rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming" />
+	<rule ref="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming" />
+	<rule ref="SlevomatCodingStandard.Classes.SuperfluousErrorNaming" />
+	<rule ref="SlevomatCodingStandard.Classes.SuperfluousTraitNaming" />
+	<rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+		<properties>
+			<property name="linesCountBeforeFirstUse" value="1" />
+			<property name="linesCountBeforeFirstUseWhenFirstInClass" value="0" />
+			<property name="linesCountBetweenUses" value="0" />
+			<property name="linesCountAfterLastUse" value="1" />
+			<property name="linesCountAfterLastUseWhenLastInClass" value="0" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.UselessLateStaticBinding" />
+
+	<!-- Commenting -->
+	<rule ref="SlevomatCodingStandard.Commenting.DeprecatedAnnotationDeclaration" />
+	<rule ref="SlevomatCodingStandard.Commenting.DisallowCommentAfterCode" />
+	<rule ref="SlevomatCodingStandard.Commenting.EmptyComment" />
+	<rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration" />
+	<rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment" />
+	<rule ref="SlevomatCodingStandard.Commenting.UselessInheritDocComment" />
+
+	<!-- Control Structures. -->
+	<rule ref="SlevomatCodingStandard.ControlStructures.AssignmentInCondition" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing">
+		<properties>
+			<property name="linesCountBefore" value="1" />
+			<property name="linesCountBeforeFirst" value="0" />
+			<property name="linesCountAfter" value="1" />
+			<property name="linesCountAfterLast" value="0" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit" />
+	<!-- <rule ref="SlevomatCodingStandard.ControlStructures.DisallowTrailingMultiLineTernaryOperator" /> -->
+	<rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineCondition">
+		<properties>
+			<property name="minLineLength" value="120" />
+			<property name="alwaysSplitAllConditionParts" value="true" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
+		<properties>
+			<property name="lineLengthLimit" value="120" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireNullSafeObjectOperator" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireSingleLineCondition">
+		<properties>
+			<property name="maxLineLength" value="120" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.ControlStructures.RequireShortTernaryOperator" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn" />
+	<rule ref="SlevomatCodingStandard.ControlStructures.UselessTernaryOperator" />
+
+	<!-- Exceptions -->
+	<rule ref="SlevomatCodingStandard.Exceptions.DeadCatch" />
+	<rule ref="SlevomatCodingStandard.Exceptions.DisallowNonCapturingCatch" />
+	<rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly" />
+
+	<!-- Files -->
+	<rule ref="SlevomatCodingStandard.Files.FileLength">
+		<type>warning</type>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Files.LineLength">
+		<type>warning</type>
+		<properties>
+			<property name="lineLengthLimit" value="120" />
+			<property name="ignoreComments" value="false" />
+			<property name="ignoreImports" value="true" />
+		</properties>
+	</rule>
+
+	<!-- Functions. -->
+	<rule ref="SlevomatCodingStandard.Functions.DisallowEmptyFunction" />
+	<rule ref="SlevomatCodingStandard.Functions.FunctionLength">
+		<type>warning</type>
+		<properties>
+			<property name="includeComments" value="false" />
+			<property name="includeWhitespace" value="false" />
+			<property name="maxLinesLength" value="20" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Functions.RequireMultiLineCall">
+		<properties>
+			<property name="minLineLength" value="120" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall">
+		<properties>
+			<property name="maxLineLength" value="71" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInCall" />
+	<rule ref="SlevomatCodingStandard.Functions.DisallowTrailingCommaInDeclaration" />
+	<rule ref="SlevomatCodingStandard.Functions.UnusedInheritedVariablePassedToClosure" />
+	<rule ref="SlevomatCodingStandard.Functions.UnusedParameter" />
+	<rule ref="SlevomatCodingStandard.Functions.UselessParameterDefaultValue" />
+
+	<!-- Namespaces -->
+	<rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses" />
+	<rule ref="SlevomatCodingStandard.Namespaces.NamespaceDeclaration" />
+	<rule ref="SlevomatCodingStandard.Namespaces.RequireOneNamespaceInFile" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UseSpacing">
+		<properties>
+			<property name="linesCountBeforeFirstUse" value="1"/>
+			<property name="linesCountBetweenUseTypes" value="1"/>
+			<property name="linesCountAfterLastUse" value="1"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Namespaces.UselessAlias" />
+	<rule ref="SlevomatCodingStandard.Namespaces.UnusedUses" />
+
+	<!-- Operators -->
+	<rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators" />
+	<rule ref="SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator" />
+	<rule ref="SlevomatCodingStandard.Operators.RequireOnlyStandaloneIncrementAndDecrementOperators" />
+
+	<!-- PHP -->
+	<rule ref="SlevomatCodingStandard.PHP.TypeCast" />
+	<rule ref="SlevomatCodingStandard.PHP.UselessParentheses" />
+	<rule ref="SlevomatCodingStandard.PHP.UselessSemicolon" />
+
+	<!-- Type Hints. -->
+	<rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+		<properties>
+			<property name="linesCountBeforeDeclare" value="1"/>
+			<property name="linesCountAfterDeclare" value="1"/>
+			<property name="spacesCountAroundEqualsSign" value="0"/>
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax" />
+	<rule ref="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint">
+		<type>warning</type>
+	</rule>
+	<rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+	<rule ref="SlevomatCodingStandard.TypeHints.NullTypeHintOnLastPosition" />
+	<rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint" />
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing" />
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+		<type>warning</type>
+	</rule>
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
+	<rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat">
+		<properties>
+			<property name="withSpaces" value="no" />
+			<property name="shortNullable" value="no" />
+			<property name="nullPosition" value="first" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint" />
+
+	<!-- Variables. -->
+
+	<rule ref="SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable" />
+	<!-- <rule ref="SlevomatCodingStandard.Variables.DisallowVariableVariable" /> -->
+	<rule ref="SlevomatCodingStandard.Variables.DuplicateAssignmentToVariable" />
+	<rule ref="SlevomatCodingStandard.Variables.UnusedVariable">
+		<properties>
+			<property name="ignoreUnusedValuesWhenOnlyKeysAreUsedInForeach" value="true" />
+		</properties>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Variables.UselessVariable" />
+
+	<!-- Include sniffs for PHP cross-version compatibility. -->
+	<rule ref="PHPCompatibilityWP">
+		<config name="testVersion" value="8.3-" />
+	</rule>
+
+</ruleset>
