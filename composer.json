@@ -29,7 +29,7 @@
         "composer/installers": "^2.3.0"
     },
     "require-dev": {
-        "captainhook/captainhook": "^5.23.4",
+        "captainhook/captainhook": "^5.23.5",
         "captainhook/hook-installer": "^1.0.3",
         "johnpbloch/wordpress": "^6.6.1",
         "wpackagist-plugin/query-monitor": "^3.16.4"
