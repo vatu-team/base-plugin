@@ -1,0 +1,18 @@
+{
+    "phpVersion": "8.3",
+    "plugins": [ "." ],
+    "themes": [],
+    "config": {
+        "AUTOMATIC_UPDATER_DISABLED": true,
+        "DISALLOW_FILE_EDIT": true,
+        "DISALLOW_FILE_MODS": true,
+        "DISABLE_WP_CRON": true,
+        "WP_DEFAULT_THEME": "twentytwentyfour",
+        "WP_DEVELOPMENT_MODE": "all",
+        "WP_ENVIRONMENT_TYPE": "local"
+    },
+    "mappings": {
+        "wp-content/plugins/query-monitor": "./vendor/plugins/query-monitor",
+        "wp-content/mu-plugins/": "./packages/mu-plugins"
+    }
+}

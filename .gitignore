@@ -1,0 +1,38 @@
+# System
+
+error_log
+.DS_Store
+
+# Development
+
+.vscode/*
+
+## NodeJS
+/node_modules/*
+
+# Server
+
+.env
+*.env
+!/example.env
+*.log
+/.wp-env.override.json
+
+# Applications
+
+## Composer
+/auth.json
+/tools/vendor
+/vendor
+/vendor_prefixed
+/wp-content/*
+
+## Tests
+/.phpunit.cache
+/phpcs.xml
+/phpstan.neon
+/phpunit.xml
+/tests/php/Coverage
+
+## Assets
+/assets/*

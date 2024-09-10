@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
+version: 2
+
+updates:
+
+  # Project Dependencies.
+
+  - package-ecosystem: "composer"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: daily
+      time: "04:30"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 1
+    versioning-strategy: increase
+    commit-message:
+      prefix: "Upgraded"
+      prefix-development: "Upgraded"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: daily
+      time: "04:20"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 1
+    versioning-strategy: increase
+    commit-message:
+      prefix: "Upgraded"
+      prefix-development: "Upgraded"
+
+  # Project Workflows
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "03:50"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 1
+    commit-message:
+      prefix: "Upgraded"
+      prefix-development: "Upgraded"
+
+  # Project Tools.
+
+  - package-ecosystem: composer
+    directory: "/tools"
+    registries: "*"
+    schedule:
+      interval: daily
+      time: "04:10"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 1
+    versioning-strategy: increase
+    commit-message:
+      prefix: "Upgraded"
+      prefix-development: "Upgraded"

@@ -1,0 +1,29 @@
+{
+    "name": "vatu/tools",
+    "type": "metapackage",
+    "license": "MIT",
+    "version": "0.0.1",
+    "description": "Development Tools.",
+    "homepage": "https://vatu.dev",
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vatu-team/dev-tools.git",
+            "only": [
+                "vatu/dev-tools"
+            ]
+        }
+    ],
+    "require-dev": {
+        "vatu/dev-tools": "dev-main",
+        "slevomat/coding-standard": "^8.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {}
+}

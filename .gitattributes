@@ -1,0 +1,26 @@
+# Exclude files from GitHub's language statistics
+# https://github.com/github/linguist#using-gitattributes
+
+/.devcontainer/**	linguist-vendored
+/.docker/**	linguist-vendored
+/.github/**	linguist-vendored
+/.vscode/**	linguist-vendored
+/bin/**	linguist-vendored
+/node_modules/**	linguist-vendored
+/tests/**	linguist-vendored
+/tools/**	linguist-vendored
+/vendor/**	linguist-vendored
+/vendor_prefixed/**	linguist-vendored
+
+/.wp-env.json	linguist-vendored
+/captainhook.json	linguist-vendored
+/composer.json	linguist-vendored
+/composer.lock	linguist-vendored
+/package.json	linguist-vendored
+/package-lock.json	linguist-vendored
+/phpcs.xml	linguist-vendored
+/phpcs.xml.dist	linguist-vendored
+/phpstan.neon	linguist-vendored
+/phpstan.neon.dist	linguist-vendored
+/phpunit.xml	linguist-vendored
+/phpunit.xml.dist	linguist-vendored
