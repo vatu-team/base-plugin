@@ -32,7 +32,7 @@
     "require-dev": {
         "captainhook/captainhook": "^5.23.4",
         "captainhook/hook-installer": "^1.0.3",
-        "johnpbloch/wordpress": "^6.6.1",
+        "johnpbloch/wordpress": "^6.6.2",
         "wpackagist-plugin/query-monitor": "^3.16.4"
     },
     "config": {
