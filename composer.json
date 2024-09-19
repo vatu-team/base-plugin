@@ -27,6 +27,7 @@
     "require": {
         "php": "^8.3",
         "composer/installers": "^2.3.0",
+        "madewithlove/license-checker": "^1.6",
         "thoughtsideas/wp-infrastructure": "^0.1.0"
     },
     "require-dev": {
@@ -86,11 +87,13 @@
             "./tools/vendor/bin/phpcbf"
         ],
         "test": [
+            "@composer test:license",
             "@composer test:lint",
             "@composer test:security",
             "@composer test:unit",
             "@composer test:analysis"
         ],
+        "test:license": "vendor/bin/license-checker check",
         "test:lint": [
             "@composer validate --ansi --strict",
             "@composer test:lint:lint",

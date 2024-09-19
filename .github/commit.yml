@@ -1,0 +1,402 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+#
+# Version 1.0.0
+# Author: Vatu Ltd <hello@vatu.dev>
+
+name: 'Commit'
+
+on:
+
+  workflow_dispatch:
+
+  push:
+
+concurrency:
+  group: ${{ github.workflow }}--${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+
+  license:
+    name: 'Check licenses are compatible.'
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        php-version: ['8.3']
+
+    steps:
+
+      - name: 'Check out the repository.'
+        uses: 'actions/checkout@v4.1.7'
+
+      - name: 'Set up PHP environment.'
+        uses: 'shivammathur/setup-php@2.31.1'
+        with:
+          coverage: 'none'
+          ini-values: "memory_limit=-1"
+          tools: 'composer'
+          ini-file: none
+          php-version: "${{ matrix.php-version }}"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+      - name: 'Logs debug information.'
+        run: |
+          php --version
+          composer --version
+
+      - name: 'Validate Composer file.'
+        run: |
+          composer validate --ansi --strict
+
+      - name: 'Get Composer Cache Directory.'
+        id: 'composer-cache'
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: 'Sets up Caching.'
+        uses: 'actions/cache@v4.0.2'
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-composer-build-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-composer-build-
+
+      - name: 'Install dependencies.'
+        run: |
+          composer install --no-interaction --prefer-dist
+
+      - name: 'Check licenses are compatible.'
+        run: |
+          composer run test:license
+
+  security:
+    name: 'PHP Security Analysis'
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        php-version: ['8.3']
+
+    steps:
+
+      - name: 'Check out the repository.'
+        uses: 'actions/checkout@v4.1.7'
+
+      - name: 'Set up PHP environment.'
+        uses: 'shivammathur/setup-php@2.31.1'
+        with:
+          coverage: 'none'
+          ini-values: "memory_limit=-1"
+          tools: 'composer'
+          ini-file: none
+          php-version: "${{ matrix.php-version }}"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+      - name: 'Logs debug information.'
+        run: |
+          php --version
+          composer --version
+
+      - name: 'Validate Composer file.'
+        run: |
+          composer validate --ansi --strict
+
+      - name: 'Get Composer Cache Directory.'
+        id: 'composer-cache'
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: 'Sets up Caching.'
+        uses: 'actions/cache@v4.0.2'
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-composer-build-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-composer-build-
+
+      - name: 'Install dependencies.'
+        run: |
+          composer install --no-interaction --prefer-dist
+
+      - name: 'Run security test.'
+        run: |
+          composer run test:security
+
+  validate:
+    name: 'Validate'
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        php-version: ['8.3']
+
+    steps:
+
+      - name: 'Check out the repository.'
+        uses: 'actions/checkout@v4.1.7'
+
+      - name: 'Set up PHP environment.'
+        uses: 'shivammathur/setup-php@2.31.1'
+        with:
+          coverage: 'xdebug'
+          ini-values: "memory_limit=-1"
+          tools: 'composer'
+          ini-file: none
+          php-version: "${{ matrix.php-version }}"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+      - name: 'Logs debug information.'
+        run: |
+          php --version
+          composer --version
+
+      - name: 'Validate Composer file.'
+        run: |
+          composer validate --ansi --strict
+
+  coding-standard:
+    name: 'Coding Standard'
+    needs:
+     - 'license'
+     - 'security'
+     - 'validate'
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        php-version: ['8.3']
+
+    steps:
+
+      - name: 'Check out the repository.'
+        uses: 'actions/checkout@v4.1.7'
+
+      - name: 'Set up PHP environment.'
+        uses: 'shivammathur/setup-php@2.31.1'
+        with:
+          coverage: 'none'
+          ini-values: "memory_limit=-1"
+          tools: 'composer'
+          ini-file: none
+          php-version: "${{ matrix.php-version }}"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+      - name: 'Logs debug information.'
+        run: |
+          php --version
+          composer --version
+
+      - name: 'Get Composer Cache Directory.'
+        id: 'composer-cache'
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "Sets up Caching."
+        uses: "actions/cache@v4.0.2"
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-composer-tools-${{ hashFiles('tools/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-composer-tools-
+
+      - name: "Install dependencies."
+        run: composer install --working-dir=tools --no-interaction --prefer-dist
+
+      - name: 'Lint file syntax.'
+        run: |
+          composer run test:lint:php
+
+      - name: 'PHP CodeSniffer with project rules.'
+        run: |
+          composer run test:lint:coding-standards
+
+  static-analysis:
+    name: 'Static Analysis'
+    needs:
+     - 'license'
+     - 'security'
+     - 'validate'
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        php-version:
+         - '8.1'
+
+    steps:
+
+      - name: 'Check out the repository.'
+        uses: 'actions/checkout@v4.1.7'
+
+      - name: 'Set up PHP environment.'
+        uses: 'shivammathur/setup-php@2.31.1'
+        with:
+          coverage: 'none'
+          ini-values: "memory_limit=-1"
+          tools: 'composer'
+          ini-file: none
+          php-version: "${{ matrix.php-version }}"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+      - name: 'Logs debug information.'
+        run: |
+          php --version
+          composer --version
+
+      - name: 'Get Composer Cache Directory.'
+        id: 'composer-cache'
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "Sets up Caching."
+        uses: "actions/cache@v4.0.2"
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-composer-tools-${{ hashFiles('tools/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-composer-tools-
+
+      - name: "Install dependencies."
+        run: composer install --working-dir=tools --no-interaction --prefer-dist
+
+      - name: 'Test Static Analysis'
+        run: |
+          composer run test:analysis
+
+  # code-coverage:
+  #   name: 'Code Coverage'
+  #   needs:
+  #    - 'unit-tests'
+  #   runs-on: 'ubuntu-latest'
+
+  #   strategy:
+  #     fail-fast: true
+  #     max-parallel: 1
+  #     matrix:
+  #       php-version:
+  #        - '8.3'
+
+  #   steps:
+
+  #     - name: 'Check out the repository.'
+  #       uses: 'actions/checkout@v4.1.7'
+
+  #     - name: 'Set up PHP environment.'
+  #       uses: 'shivammathur/setup-php@2.31.1'
+  #       with:
+  #         coverage: 'pcov'
+  #         ini-values: "memory_limit=-1"
+  #         tools: 'composer'
+  #         ini-file: none
+  #         php-version: "${{ matrix.php-version }}"
+  #       env:
+  #         COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+  #     - name: 'Logs debug information.'
+  #       run: |
+  #         php --version
+  #         composer --version
+
+  #     - name: 'Get Composer Cache Directory.'
+  #       id: 'composer-cache'
+  #       run: |
+  #         echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+  #     - name: "Sets up Caching."
+  #       uses: "actions/cache@v4.0.2"
+  #       with:
+  #         path: ${{ steps.composer-cache.outputs.dir }}
+  #         key: ${{ runner.os }}-php-composer-tools-${{ hashFiles('tools/composer.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-php-composer-tools-
+
+  #     - name: "Install dependencies."
+  #       run: |
+  #         composer install --no-interaction --prefer-dist
+
+  #     - name: 'Code Coverage'
+  #       run: |
+  #         composer run test:unit -- --colors=always --coverage-text --coverage-clover build/logs/clover.xml
+
+  #     - name: 'Upload coverage to Codecov'
+  #       uses: 'codecov/codecov-action@v4.5.0'
+  #       with:
+  #         files: build/logs/clover.xml
+  #         token: ${{ secrets.CODECOV_TOKEN }}
+
+  unit-tests:
+    name: 'Unit Tests'
+    needs:
+      - 'coding-standard'
+      - 'static-analysis'
+    continue-on-error: ${{ matrix.experimental }}
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - '8.3'
+        experimental: [false]
+        # include:
+        #   - php-version: '8.4'
+        #     experimental: true
+
+    steps:
+
+      - name: 'Check out the repository.'
+        uses: 'actions/checkout@v4.1.7'
+
+      - name: 'Set up PHP environment.'
+        uses: 'shivammathur/setup-php@2.31.1'
+        with:
+          coverage: 'none'
+          ini-values: "memory_limit=-1"
+          tools: 'composer'
+          ini-file: none
+          php-version: "${{ matrix.php-version }}"
+        env:
+          COMPOSER_TOKEN: ${{ secrets.github-token }}
+
+      - name: 'Logs debug information.'
+        run: |
+          php --version
+          composer --version
+
+      - name: 'Get Composer Cache Directory.'
+        id: 'composer-cache'
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: "Sets up Caching."
+        uses: "actions/cache@v4.0.2"
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-composer-tools-${{ hashFiles('tools/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-composer-tools-
+
+      - name: "Install dependencies."
+        run: |
+          composer install --no-interaction --prefer-dist
+
+      - name: 'Run Unit tests.'
+        run: |
+          composer run test:unit -- --colors=always --no-coverage

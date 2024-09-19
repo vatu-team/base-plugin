@@ -30,6 +30,7 @@
 .github	export-ignore
 packages	export-ignore
 tools	export-ignore
+.allowed-licenses	export-ignore
 .wp-env.json	export-ignore
 captainhook.json	export-ignore
 composer.lock	export-ignore
