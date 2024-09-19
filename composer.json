@@ -96,10 +96,10 @@
         "test:license": "vendor/bin/license-checker check",
         "test:lint": [
             "@composer validate --ansi --strict",
-            "@composer test:lint:lint",
+            "@composer test:lint:php",
             "@composer test:lint:coding-standards"
         ],
-        "test:lint:lint": [
+        "test:lint:php": [
             "./tools/vendor/bin/parallel-lint --exclude */vendor ./src",
             "./tools/vendor/bin/parallel-lint --exclude */vendor ./tests"
         ],

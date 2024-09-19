@@ -11,7 +11,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "composer run test:lint:lint"
+                "action": "composer run test:lint:php"
             },
             {
                 "action": "composer run test:unit"
