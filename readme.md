@@ -1,5 +1,7 @@
 # Base Plugin
 
+[![Commit](https://github.com/vatu-team/base-plugin/actions/workflows/commit.yml/badge.svg)](https://github.com/vatu-team/base-plugin/actions/workflows/commit.yml)
+
 ## Introduction
 
 I'm a 'base plugin' template to be used to build custom plugins from.
