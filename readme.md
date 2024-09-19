@@ -15,7 +15,7 @@ My core principles are:
 - Vanilla CSS
 - Vanilla JS
 
-## [Documentation](https://github.com/vatu-team/base-plugin/blob/trunk/docs/index.md)
+## [Documentation](https://github.com/vatu-team/base-plugin/blob/trunk/docs/readme.md)
 
 ### Directory Structure
 
