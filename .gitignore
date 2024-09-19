@@ -38,4 +38,4 @@ error_log
 /assets/*
 
 ## Compiled Files
-src/Domain/**/Blocks/**/build/*
+build/*

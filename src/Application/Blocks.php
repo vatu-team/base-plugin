@@ -20,6 +20,8 @@ use Client\BasePlugin\Infrastructure\Block;
 use ThoughtsIdeas\Wordpress\Infrastructure\Services\Registrable;
 use ThoughtsIdeas\Wordpress\Infrastructure\Services\Service;
 
+use const Client\BasePlugin\BLOCK_DIR;
+
 final class Blocks extends Service implements Registrable
 {
 	protected string $name = 'Blocks';
@@ -49,7 +51,7 @@ final class Blocks extends Service implements Registrable
 		$this->createBlockList();
 
 		foreach ( $this->block_list as $block ) {
-			\register_block_type( block_type: $block );
+			\register_block_type( block_type: BLOCK_DIR . $block );
 		}
 	}
 

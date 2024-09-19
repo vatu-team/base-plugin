@@ -27,7 +27,7 @@ final class StaticBlock extends Block implements Registrable
 	 * @var array<string>
 	 */
 	protected array $block_path_list = [
-		__DIR__ . '/Blocks/static/build',
+		'/static',
 	];
 
 	public function register(): void

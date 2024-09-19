@@ -9,16 +9,21 @@
         "node": "^20.9.0"
     },
     "scripts": {
+        "test-wp": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/",
+        "format": "wp-scripts format",
+        "lint:css": "wp-scripts lint-style",
+        "lint:js": "wp-scripts lint-js",
         "start": "run-s \"start:scripts:blocks\"",
         "build": "run-s \"build:scripts:blocks\"",
         "wp-env": "wp-env",
         "composer": "wp-env run composer",
-        "build:scripts:blocks": "run-p \"build:scripts:blocks:dynamic\" \"build:scripts:blocks:static\"",
-        "build:scripts:blocks:dynamic": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/dynamic/src --output-path=./src/Domain/ExampleBlocks/Blocks/dynamic/build",
-        "build:scripts:blocks:static": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/static/src --output-path=./src/Domain/ExampleBlocks/Blocks/static/build",
-        "start:scripts:blocks": "run-p \"start:scripts:blocks:dynamic\" \"start:scripts:blocks:static\"",
-        "start:scripts:blocks:dynamic": "wp-scripts start --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/dynamic/src --output-path=./src/Domain/ExampleBlocks/Blocks/dynamic/build",
-        "start:scripts:blocks:static": "wp-scripts start --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/static/src --output-path=./src/Domain/ExampleBlocks/Blocks/static/build"
+
+        "build:scripts:blocks": "run-p \"build:scripts:blocks:example\"",
+        "build:scripts:blocks:example": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/",
+
+        "start:scripts:blocks": "run-p \"start:scripts:blocks:example\"",
+        "start:scripts:blocks:example": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/"
+
     },
     "devDependencies": {
         "@wordpress/compose": "^7.7.0",

@@ -41,6 +41,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 const HOOK_PREFIX = 'Vatu';
 
+const BLOCK_DIR = __DIR__ . '/build';
+
 /**
  * Autoloader.
  */

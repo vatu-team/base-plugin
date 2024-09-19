@@ -27,7 +27,7 @@ final class DynamicBlock extends Block implements Registrable
 	 * @var array<string>
 	 */
 	protected array $block_path_list = [
-		__DIR__ . '/Blocks/dynamic/build',
+		'/dynamic',
 	];
 
 	public function register(): void

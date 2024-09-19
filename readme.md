@@ -26,6 +26,7 @@ The aim of the directory structure for this plugin is to keep everything well-or
 │   ├── fonts
 │   │── js
 │   └── svg
+├── build
 ├── src
 │   ├── Application
 │   ├── Domain
@@ -41,6 +42,7 @@ The aim of the directory structure for this plugin is to keep everything well-or
 
 - `/.github/`
 - `/assets/` Compiled assets such as CSS, Fonts, JavaScript, and SVG.
+- `/build/` Compiled block assets.
 - `/src/`
   - `/src/Application/` Exposes the functionality of the domain to other application layers as hooks and filters (an API).
   - `/src/Domain/` Modules of code based upon the business needs
