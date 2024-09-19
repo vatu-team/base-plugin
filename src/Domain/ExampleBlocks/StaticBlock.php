@@ -39,16 +39,4 @@ final class StaticBlock extends Block implements Registrable
 			accepted_args: 1
 		);
 	}
-
-	/**
-	 * @param array<string> $block_list
-	 *
-	 * @return array<Block|string>
-	 */
-	public function registerBlock( array $block_list ): array
-	{
-		$block_list[] = $this;
-
-		return $block_list;
-	}
 }

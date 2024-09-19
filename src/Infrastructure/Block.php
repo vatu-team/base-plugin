@@ -31,4 +31,16 @@ abstract class Block extends Service
 	{
 		return $this->block_path_list;
 	}
+
+	/**
+	 * @param array<string> $block_list
+	 *
+	 * @return array<Block|string>
+	 */
+	public function registerBlock( array $block_list ): array
+	{
+		$block_list[] = $this;
+
+		return $block_list;
+	}
 }
