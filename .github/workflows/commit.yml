@@ -274,7 +274,9 @@ jobs:
             ${{ runner.os }}-php-composer-tools-
 
       - name: "Install dependencies."
-        run: composer install --working-dir=tools --no-interaction --prefer-dist
+        run: |
+          composer install --working-dir=tools --no-interaction --prefer-dist
+          composer install --no-interaction --prefer-dist
 
       - name: 'Test Static Analysis'
         run: |
