@@ -17,20 +17,17 @@
         "build": "run-s \"build:scripts:blocks\"",
         "wp-env": "wp-env",
         "composer": "wp-env run composer",
-
         "build:scripts:blocks": "run-p \"build:scripts:blocks:example\"",
         "build:scripts:blocks:example": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/",
-
         "start:scripts:blocks": "run-p \"start:scripts:blocks:example\"",
         "start:scripts:blocks:example": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/"
-
     },
     "devDependencies": {
         "@wordpress/compose": "^7.7.0",
         "@wordpress/create-block": "^4.50.0",
         "@wordpress/env": "^10.7.0",
         "@wordpress/plugins": "^7.7.0",
-        "@wordpress/scripts": "^29.0.0",
+        "@wordpress/scripts": "^30.0.0",
         "npm-run-all": "^4.1.5",
         "path": "^0.12.7",
         "webpack-remove-empty-scripts": "^1.0.4"
