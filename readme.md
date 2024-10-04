@@ -80,7 +80,9 @@ A service is a grouping of functionality. An example of a `Service` could includ
 Services can run hooks upon Registration by `implements Registrable`.
 This requires a `register()` method be used when WordPress actions and fillters can be added.
 
-## Base Plugin Development
+## Base Plugin Template Development
+
+To start improving **this** template  for the first time:
 
 ### Install
 
