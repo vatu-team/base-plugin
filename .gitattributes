@@ -31,7 +31,14 @@
 packages	export-ignore
 tools	export-ignore
 .allowed-licenses	export-ignore
+.editorconfig	export-ignore
+.gitattributes	export-ignore
+.gitignore	export-ignore
 .wp-env.json	export-ignore
 captainhook.json	export-ignore
+composer.json	export-ignore
 composer.lock	export-ignore
+package.json	export-ignore
 package-lock.json	export-ignore
+phpstan.dist.neon	export-ignore
+phpunit.dist.xml	export-ignore
