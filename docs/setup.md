@@ -25,7 +25,7 @@ _(Not the new plugin's config files.)_
 - `composer require thoughtsideas/wp-infrastructure` _to be changed to `vatu/wp-infrastructure` in the future_
 - Add Autoload to PSR-4 `"{ClientName}\\{PluginName}\\": "public/app/plugins/{plugin-name}/src/"`
 - Add Autoload Dev as PSR-4  ` "{ClientName}\\Tests\\Unit\\": "public/app/plugins/{plugin-name}/tests/php/Unit/"`
-- Run `composer autoload-dump`
+- Run `composer dump-autoload`
 - Add plugin directory to parallel lint test script
 - Add plugin directory to phpcs test script
 - Add plugin directory to phpcbf test script
