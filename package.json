@@ -23,7 +23,7 @@
         "start:scripts:blocks:example": "wp-scripts build --webpack-src-dir=./src/Domain/ExampleBlocks/Blocks/"
     },
     "devDependencies": {
-        "@wordpress/compose": "^7.7.0",
+        "@wordpress/compose": "^7.9.0",
         "@wordpress/create-block": "^4.50.0",
         "@wordpress/env": "^10.7.0",
         "@wordpress/plugins": "^7.7.0",
