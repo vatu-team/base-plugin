@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b2a2261e119195671876fa82e9f1aa1",
+    "content-hash": "aae99d69a8ea0518697cef39f7b5101f",
     "packages": [
         {
             "name": "captainhook/hook-installer",
@@ -1086,21 +1086,21 @@
         },
         {
             "name": "thoughtsideas/wp-infrastructure",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thoughtsideas/wp-infrastructure.git",
-                "reference": "adb7a0637b96a47bad5f71cfdf4f62742865df61"
+                "reference": "4f71268b0cd6798b615120407c27c310b37689fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thoughtsideas/wp-infrastructure/zipball/adb7a0637b96a47bad5f71cfdf4f62742865df61",
-                "reference": "adb7a0637b96a47bad5f71cfdf4f62742865df61",
+                "url": "https://api.github.com/repos/thoughtsideas/wp-infrastructure/zipball/4f71268b0cd6798b615120407c27c310b37689fb",
+                "reference": "4f71268b0cd6798b615120407c27c310b37689fb",
                 "shasum": ""
             },
             "require": {
                 "captainhook/hook-installer": "^1.0",
-                "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.23",
@@ -1146,9 +1146,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thoughtsideas/wp-infrastrucuture/issues/",
-                "source": "https://github.com/thoughtsideas/wp-infrastructure/tree/0.1.0"
+                "source": "https://github.com/thoughtsideas/wp-infrastructure/tree/0.2.0"
             },
-            "time": "2024-09-10T13:49:27+00:00"
+            "time": "2025-01-05T21:33:14+00:00"
         }
     ],
     "packages-dev": [
