@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92892ae78fec2799df470e763a5ca945",
+    "content-hash": "191d2615abacbc1673ebfd98a7883fa3",
     "packages": [
         {
             "name": "captainhook/hook-installer",
@@ -201,29 +201,29 @@
         },
         {
             "name": "madewithlove/license-checker",
-            "version": "v1.6",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/madewithlove/license-checker-php.git",
-                "reference": "e106bd392787b3a9131b6a9c9196b5f82bf6aa96"
+                "reference": "82fcb8645df0186037ce93c817f1847d954e6dbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/madewithlove/license-checker-php/zipball/e106bd392787b3a9131b6a9c9196b5f82bf6aa96",
-                "reference": "e106bd392787b3a9131b6a9c9196b5f82bf6aa96",
+                "url": "https://api.github.com/repos/madewithlove/license-checker-php/zipball/82fcb8645df0186037ce93c817f1847d954e6dbc",
+                "reference": "82fcb8645df0186037ce93c817f1847d954e6dbc",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1",
+                "php": "^8.3",
                 "symfony/console": "^4.0 || ^5.0 || ^6.0 || ^7.0",
                 "symfony/process": "^4.0 || ^5.0 || ^6.0 || ^7.0",
                 "symfony/yaml": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.16",
-                "phpunit/phpunit": "^10.1",
-                "psalm/plugin-phpunit": "^0.18",
-                "vimeo/psalm": "^5.9"
+                "phpunit/phpunit": "^12.1",
+                "psalm/plugin-phpunit": "^0.19",
+                "vimeo/psalm": "^6.10"
             },
             "bin": [
                 "bin/license-checker"
@@ -247,9 +247,9 @@
             "description": "CLI tool to verify allowed licenses for composer dependencies",
             "support": {
                 "issues": "https://github.com/madewithlove/license-checker-php/issues",
-                "source": "https://github.com/madewithlove/license-checker-php/tree/v1.6"
+                "source": "https://github.com/madewithlove/license-checker-php/tree/v2.0"
             },
-            "time": "2024-03-26T13:09:34+00:00"
+            "time": "2025-04-25T09:08:57+00:00"
         },
         {
             "name": "psr/container",
@@ -1015,20 +1015,21 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v7.1.4",
+            "version": "v7.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "92e080b851c1c655c786a2da77f188f2dccd0f4b"
+                "reference": "4c4b6f4cfcd7e52053f0c8bfad0f7f30fb924912"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/92e080b851c1c655c786a2da77f188f2dccd0f4b",
-                "reference": "92e080b851c1c655c786a2da77f188f2dccd0f4b",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/4c4b6f4cfcd7e52053f0c8bfad0f7f30fb924912",
+                "reference": "4c4b6f4cfcd7e52053f0c8bfad0f7f30fb924912",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
+                "symfony/deprecation-contracts": "^2.5|^3.0",
                 "symfony/polyfill-ctype": "^1.8"
             },
             "conflict": {
@@ -1066,7 +1067,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.1.4"
+                "source": "https://github.com/symfony/yaml/tree/v7.2.5"
             },
             "funding": [
                 {
@@ -1082,7 +1083,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-12T09:59:40+00:00"
+            "time": "2025-03-03T07:12:39+00:00"
         },
         {
             "name": "thoughtsideas/wp-infrastructure",
