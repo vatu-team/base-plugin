@@ -47,9 +47,9 @@ abstract class PostMetaField implements MetaField
 
 	protected bool $revisions_enabled = false;
 
-	private string $meta_type = 'post';
-
 	protected string $post_type = '';
+
+	private string $meta_type = 'post';
 
 	public function getMetaType(): string
 	{
