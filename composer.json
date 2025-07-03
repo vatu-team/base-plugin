@@ -31,7 +31,7 @@
         "thoughtsideas/wp-infrastructure": "^0.2.0"
     },
     "require-dev": {
-        "captainhook/captainhook": "^5.25.5",
+        "captainhook/captainhook": "^5.25.6",
         "captainhook/hook-installer": "^1.0.3",
         "johnpbloch/wordpress": "^6.8.1",
         "wpackagist-plugin/query-monitor": "^3.18.0"
