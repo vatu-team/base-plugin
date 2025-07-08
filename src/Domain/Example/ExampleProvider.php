@@ -7,12 +7,12 @@
  * @author    Vatu <hello@vatu.dev>
  * @link      https://vatu.dev/
  * @license   GNU General Public License v3.0 or later
- * @copyright 2023-2024 Vatu Limited.
+ * @copyright 2023-2025 Vatu Limited.
  */
 
 declare(strict_types=1);
 
-namespace Client\BasePlugin\Domain;
+namespace Client\BasePlugin\Domain\Example;
 
 use ThoughtsIdeas\Wordpress\Infrastructure\Services\ServiceProvider;
 
@@ -26,6 +26,7 @@ final class ExampleProvider extends ServiceProvider
 	 * @var array<string>
 	 */
 	protected array $service_collection = [
-		Example\ExampleService::class,
+		ExampleService::class,
+		ExamplePostMetaRegistrar::class,
 	];
 }

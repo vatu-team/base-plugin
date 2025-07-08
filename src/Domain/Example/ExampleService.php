@@ -7,7 +7,7 @@
  * @author    Vatu <hello@vatu.dev>
  * @link      https://vatu.dev/
  * @license   GNU General Public License v3.0 or later
- * @copyright 2023-2024 Vatu Limited.
+ * @copyright 2023-2025 Vatu Limited.
  */
 
 declare(strict_types=1);
@@ -24,10 +24,10 @@ final class ExampleService extends Service implements Registrable
 	public function register(): void
 	{
 		\add_action(
-			'wp_body_open',
-			[ $this, 'test' ],
-			10,
-			0
+			hook_name: 'wp_body_open',
+			callback: [ $this, 'test' ],
+			priority: 10,
+			accepted_args: 0
 		);
 	}
 

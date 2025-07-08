@@ -7,7 +7,7 @@
  * @author    Vatu <hello@vatu.dev>
  * @link      https://vatu.dev/
  * @license   GNU General Public License v3.0 or later
- * @copyright 2023-2024 Vatu Limited.
+ * @copyright 2023-2025 Vatu Limited.
  */
 
 declare(strict_types=1);
@@ -27,5 +27,6 @@ final class ApplicationProvider extends ServiceProvider
 	 */
 	protected array $service_collection = [
 		Blocks::class,
+		Meta::class,
 	];
 }
