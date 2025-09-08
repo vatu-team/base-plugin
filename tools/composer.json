@@ -17,7 +17,7 @@
     ],
     "require-dev": {
         "vatu/dev-tools": "dev-main",
-        "slevomat/coding-standard": "^8.21"
+        "slevomat/coding-standard": "^8.22"
     },
     "config": {
         "allow-plugins": {
