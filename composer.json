@@ -28,7 +28,7 @@
         "php": "^8.3",
         "composer/installers": "^2.3.0",
         "madewithlove/license-checker": "^2.1",
-        "thoughtsideas/wp-infrastructure": "^0.2.0"
+        "thoughtsideas/wp-infrastructure": "^0.2.1"
     },
     "require-dev": {
         "captainhook/captainhook": "^5.27.4",
