@@ -4,55 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8491ec9488cb9c75fed7a1b1c078f6d8",
+    "content-hash": "0658541417cc79d953063ff3b46b46a3",
     "packages": [
-        {
-            "name": "captainhook/hook-installer",
-            "version": "1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/captainhook-git/hook-installer.git",
-                "reference": "fb3c45f6204b08baba999f4ffc4ae707bf684e8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/captainhook-git/hook-installer/zipball/fb3c45f6204b08baba999f4ffc4ae707bf684e8b",
-                "reference": "fb3c45f6204b08baba999f4ffc4ae707bf684e8b",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1|^2.0",
-                "php": ">=8.0"
-            },
-            "require-dev": {
-                "composer/composer": "*"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "CaptainHook\\HookInstaller\\ComposerPlugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "CaptainHook\\HookInstaller\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Feldmann",
-                    "email": "sf@sebastian-feldmann.info"
-                }
-            ],
-            "description": "Composer Plugin that makes everyone activate the CaptainHook git hooks locally",
-            "support": {
-                "issues": "https://github.com/captainhook-git/hook-installer/issues",
-                "source": "https://github.com/captainhook-git/hook-installer/tree/1.0.4"
-            },
-            "time": "2025-04-08T07:12:26+00:00"
-        },
         {
             "name": "composer/installers",
             "version": "v2.3.0",
@@ -1125,24 +1078,24 @@
         },
         {
             "name": "thoughtsideas/wp-infrastructure",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thoughtsideas/wp-infrastructure.git",
-                "reference": "5339ca94ca21d249fc4d4bbec7ab1000b8d7e8b5"
+                "reference": "116a04a673d680ccb1b6d3f46f9f4ab23e2df6cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thoughtsideas/wp-infrastructure/zipball/5339ca94ca21d249fc4d4bbec7ab1000b8d7e8b5",
-                "reference": "5339ca94ca21d249fc4d4bbec7ab1000b8d7e8b5",
+                "url": "https://api.github.com/repos/thoughtsideas/wp-infrastructure/zipball/116a04a673d680ccb1b6d3f46f9f4ab23e2df6cf",
+                "reference": "116a04a673d680ccb1b6d3f46f9f4ab23e2df6cf",
                 "shasum": ""
             },
             "require": {
-                "captainhook/hook-installer": "^1.0",
                 "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
-                "captainhook/captainhook": "^5.27",
+                "captainhook/captainhook": "^5.27.5",
+                "captainhook/hook-installer": "^1.0.4",
                 "ergebnis/composer-normalize": "^2.48",
                 "madewithlove/license-checker": "^1.5",
                 "phly/keep-a-changelog": "^2.12",
@@ -1185,9 +1138,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thoughtsideas/wp-infrastrucuture/issues/",
-                "source": "https://github.com/thoughtsideas/wp-infrastructure/tree/0.2.1"
+                "source": "https://github.com/thoughtsideas/wp-infrastructure/tree/0.2.2"
             },
-            "time": "2026-01-08T09:07:38+00:00"
+            "time": "2026-02-01T14:43:49+00:00"
         }
     ],
     "packages-dev": [
@@ -1274,6 +1227,53 @@
                 }
             ],
             "time": "2026-01-26T21:55:28+00:00"
+        },
+        {
+            "name": "captainhook/hook-installer",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/captainhook-git/hook-installer.git",
+                "reference": "fb3c45f6204b08baba999f4ffc4ae707bf684e8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/captainhook-git/hook-installer/zipball/fb3c45f6204b08baba999f4ffc4ae707bf684e8b",
+                "reference": "fb3c45f6204b08baba999f4ffc4ae707bf684e8b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1|^2.0",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "composer/composer": "*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "CaptainHook\\HookInstaller\\ComposerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "CaptainHook\\HookInstaller\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Feldmann",
+                    "email": "sf@sebastian-feldmann.info"
+                }
+            ],
+            "description": "Composer Plugin that makes everyone activate the CaptainHook git hooks locally",
+            "support": {
+                "issues": "https://github.com/captainhook-git/hook-installer/issues",
+                "source": "https://github.com/captainhook-git/hook-installer/tree/1.0.4"
+            },
+            "time": "2025-04-08T07:12:26+00:00"
         },
         {
             "name": "captainhook/secrets",
