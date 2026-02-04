@@ -28,6 +28,7 @@ final class Plugin extends ServiceLocator implements Main
 	 */
 	protected array $provider_collection = [
 		Application\ApplicationProvider::class,
+		Domain\GoogleTagManager\Provider::class,
 		Domain\Example\ExampleProvider::class,
 		Domain\ExampleBlocks\ExampleBlocksProvider::class,
 	];
