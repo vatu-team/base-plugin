@@ -65,8 +65,10 @@
         }
     },
     "forwardPorts": [
-        8888,
-        8889
+        8080,
+        8181,
+        13306,
+        13307
     ],
     "postStartCommand": [
         ".devcontainer/post-start.sh"
