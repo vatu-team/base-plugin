@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Client\BasePlugin\Database\Migrations;
 
-use Client\BasePlugin\Domain\Wordpress\EditorCapabilities;
 use Client\BasePlugin\Infrastructure\Upgrade;
 
 /* phpcs:ignore Squiz.Classes.ValidClassName.NotCamelCaps */
