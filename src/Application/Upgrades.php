@@ -22,7 +22,7 @@ use const Client\BasePlugin\PLUGIN_FILE;
 final class Upgrades extends Service implements Registrable
 {
 	/* phpcs:ignore Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase -- WP Options are lowercase */
-	private const VERSION_OPTION_KEY = 'francisjoinery_core_version';
+	private const VERSION_OPTION_KEY = 'base_plugin_core_version';
 
 	protected string $name = 'Upgrade';
 
