@@ -3,7 +3,7 @@
 /**
  * Service: Example
  *
- * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
+ * @package   Client\BasePlugin
  * @author    Vatu <hello@vatu.dev>
  * @link      https://vatu.dev/
  * @license   GNU General Public License v3.0 or later

@@ -3,20 +3,18 @@
 /**
  * Register WordPress Blocks
  *
-
  * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
  * @author    Vatu <hello@vatu.dev>
  * @link      https://vatu.dev/
  * @license   GNU General Public License v3.0 or later
- * @copyright 2023-2024 Vatu Limited.
- *
+ * @copyright 2026 Vatu Limited.
  */
 
 declare(strict_types=1);
 
 namespace Client\BasePlugin\Application;
 
-use Client\BasePlugin\Infrastructure\Block;
+use Client\BasePlugin\Infrastructure\Block\BlockType;
 use ThoughtsIdeas\Wordpress\Infrastructure\Services\Registrable;
 use ThoughtsIdeas\Wordpress\Infrastructure\Services\Service;
 
@@ -32,7 +30,7 @@ final class Blocks extends Service implements Registrable
 	private array $block_provider_list = [];
 
 	/**
-	 * @var array<string>
+	 * @var array<BlockType>
 	 */
 	private array $block_list = [];
 
@@ -51,7 +49,9 @@ final class Blocks extends Service implements Registrable
 		$this->createBlockList();
 
 		foreach ( $this->block_list as $block ) {
-			\register_block_type( block_type: BLOCK_DIR . $block );
+			\register_block_type(
+				block_type: BLOCK_DIR . '/' . $block->getBlockType() . '/block.json'
+			);
 		}
 	}
 
@@ -68,20 +68,15 @@ final class Blocks extends Service implements Registrable
 
 	private function createBlockList(): void
 	{
-		foreach ( $this->getBlockProviderList() as $class ) {
-			$block            = $this->createBlock( $class );
-			$this->block_list = array_merge( $this->block_list, $block->getPath() );
+		foreach ( $this->getBlockProviderList() as $block ) {
+			$this->block_list[] = $this->initBlock( $block );
 		}
 	}
 
-	private function createBlock( string|Block $block ): Block
+	private function initBlock( string|BlockType $block ): BlockType
 	{
-		if ( ! is_string( $block ) ) {
-			return $block;
-		}
-
 		/**
-		 * @var Block $return
+		 * @var BlockType $return
 		 */
 		$return = new $block();
 		return $return;

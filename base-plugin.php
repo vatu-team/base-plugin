@@ -36,12 +36,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 
+const PLUGIN_FILE = __FILE__;
+
 /**
  * Scope hooks identifier.
  */
 const HOOK_PREFIX = 'Vatu';
 
-const BLOCK_DIR = __DIR__ . '/build';
+const BUILD_DIR = __DIR__ . '/build';
+
+const BLOCK_DIR = __DIR__ . '/build/blocks';
 
 /**
  * Autoloader.

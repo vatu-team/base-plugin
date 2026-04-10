@@ -3,13 +3,11 @@
 /**
  * Register WordPress Meta
  *
-
  * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
  * @author    Vatu <hello@vatu.dev>
  * @link      https://vatu.dev/
  * @license   GNU General Public License v3.0 or later
- * @copyright 2023-2025 Vatu Limited.
- *
+ * @copyright 2026 Vatu Limited.
  */
 
 declare(strict_types=1);
@@ -22,7 +20,7 @@ use ThoughtsIdeas\Wordpress\Infrastructure\Services\Service;
 
 final class Meta extends Service implements Registrable
 {
-	private const string PREFIX = 'base_plugin_';
+	private const PREFIX = 'baseplugin_';
 
 	protected string $name = 'Meta';
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Interface: Meta Field
+ * Interface: Taxonomy Type
  *
  * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
  * @author    Thoughts & Ideas <hello@thoughtsandideas.uk>
@@ -12,17 +12,21 @@
 
 declare(strict_types=1);
 
-namespace Client\BasePlugin\Infrastructure\Meta;
+namespace Client\BasePlugin\Infrastructure\Taxonomy;
 
-interface MetaField
+interface TaxonomyType
 {
 	/**
 	 * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
-	 * @return array<string|mixed>
+	 * @return array<string, mixed>
 	 */
-	public function toArray(): array;
+	public function getObjectTypes(): array|string;
+
+	/**
+	 * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
+	 * @return array<string, mixed>
+	 */
+	public function getArgs(): array;
 
 	public function getKey(): string;
-
-	public function getMetaType(): string;
 }

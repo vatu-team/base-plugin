@@ -3,12 +3,11 @@
 /**
  * Interface: WordPress Block
  *
- * @package   ThoughtsIdeas\WordPress\Infrastructure\Contracts
+ * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
  * @author    Thoughts & Ideas <hello@thoughtsandideas.uk>
- * @link      https://thoughtsandideas.uk/
- * @version   1.0.0
- * @license   MIT
- * @copyright (c) 2022-2024 Thoughts & Ideas Limited.
+ * @link      https://www.thoughtsandideas.uk/
+ * @license   GNU General Public License v3.0 or later
+ * @copyright 2026 Thoughts & Ideas Limited.
  */
 
 declare(strict_types=1);

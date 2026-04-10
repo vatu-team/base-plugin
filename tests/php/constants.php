@@ -20,5 +20,7 @@ namespace {
 }
 
 namespace Client\BasePlugin {
+	const PLUGIN_FILE = 'base-plugin/base-plugin.php';
+	const BUILD_DIR = '/build';
 	const BLOCK_DIR = '/example';
 }

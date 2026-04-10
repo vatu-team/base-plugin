@@ -4,10 +4,10 @@
  * Term Meta Field
  *
  * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
- * @author    Vatu <hello@vatu.dev>
- * @link      https://vatu.dev/
- * @license   GNU General Public License v3.0
- * @copyright 2025 Vatu Ltd.
+ * @author    Thoughts & Ideas <hello@thoughtsandideas.uk>
+ * @link      https://www.thoughtsandideas.uk/
+ * @license   GNU General Public License v3.0 or later
+ * @copyright 2026 Thoughts & Ideas Limited.
  */
 
 declare(strict_types=1);
@@ -25,7 +25,7 @@ abstract class TermMetaField implements MetaField
 	protected bool $is_single_value;
 
 	/**
-     * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
+	 * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
 	 */
 	protected mixed $default_value;
 
@@ -40,7 +40,7 @@ abstract class TermMetaField implements MetaField
 	protected $auth_callback;
 
 	/**
-     * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
+	 * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
 	 * @var bool|array<mixed>
 	 */
 	protected bool|array $is_show_in_rest;
@@ -60,6 +60,7 @@ abstract class TermMetaField implements MetaField
 	}
 
 	/**
+	 * phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
 	 * @return array<string,mixed>
 	 */
 	public function toArray(): array
