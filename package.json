@@ -25,7 +25,7 @@
         "composer": "wp-env run composer"
     },
     "devDependencies": {
-        "@wordpress/components": "^32.5.0",
+        "@wordpress/components": "^33.0.0",
         "@wordpress/compose": "^7.21.0",
         "@wordpress/core-data": "^7.45.0",
         "@wordpress/create-block": "^4.68.0",
