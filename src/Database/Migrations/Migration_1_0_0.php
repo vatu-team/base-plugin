@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Version 1.1.0
+ * Version 1.0.0
  *
  * @package   Vatu\Wordpress\Plugin\Client\BasePlugin
  * @author    Vatu <hello@vatu.dev>
