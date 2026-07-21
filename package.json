@@ -31,7 +31,7 @@
         "@wordpress/create-block": "^4.91.0",
         "@wordpress/i18n": "^6.16.0",
         "@wordpress/icons": "^14.0.0",
-        "@wordpress/env": "^11.8.0",
+        "@wordpress/env": "^11.10.0",
         "@wordpress/plugins": "^7.48.1",
         "@wordpress/scripts": "^32.6.0",
         "glob": "^13.0.6",
