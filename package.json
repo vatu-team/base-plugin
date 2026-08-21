@@ -26,7 +26,7 @@
     },
     "devDependencies": {
         "@wordpress/components": "^38.0.0",
-        "@wordpress/compose": "^8.0.0",
+        "@wordpress/compose": "^8.6.0",
         "@wordpress/core-data": "^7.51.0",
         "@wordpress/create-block": "^4.95.0",
         "@wordpress/i18n": "^6.26.0",
