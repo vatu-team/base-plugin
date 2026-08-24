@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0f7a07e6a8983a2d042caa7f854f687",
+    "content-hash": "75a907c5d00976c9fb636d3b8677e58f",
     "packages": [
         {
             "name": "composer/installers",
@@ -1082,28 +1082,28 @@
         },
         {
             "name": "thoughtsideas/wp-infrastructure",
-            "version": "0.2.3",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thoughtsideas/wp-infrastructure.git",
-                "reference": "26c423f3239b6a8c2971cebea03901567f3d12de"
+                "reference": "4946e300114a8a1845ed88c51d5e67ef267414bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thoughtsideas/wp-infrastructure/zipball/26c423f3239b6a8c2971cebea03901567f3d12de",
-                "reference": "26c423f3239b6a8c2971cebea03901567f3d12de",
+                "url": "https://api.github.com/repos/thoughtsideas/wp-infrastructure/zipball/4946e300114a8a1845ed88c51d5e67ef267414bb",
+                "reference": "4946e300114a8a1845ed88c51d5e67ef267414bb",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+                "psr/container": "^2.0"
             },
             "require-dev": {
-                "captainhook/captainhook": "^5.28.0",
-                "captainhook/hook-installer": "^1.0.4",
-                "ergebnis/composer-normalize": "^2.50",
-                "madewithlove/license-checker": "^1.5",
-                "phly/keep-a-changelog": "^2.12",
-                "roave/security-advisories": "dev-latest"
+                "captainhook/captainhook": "^5.29.2",
+                "captainhook/hook-installer": "^1.0.5",
+                "ergebnis/composer-normalize": "^2.52",
+                "madewithlove/license-checker": "^1.6",
+                "phly/keep-a-changelog": "^2.13.2"
             },
             "type": "library",
             "extra": {
@@ -1142,9 +1142,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thoughtsideas/wp-infrastrucuture/issues/",
-                "source": "https://github.com/thoughtsideas/wp-infrastructure/tree/0.2.3"
+                "source": "https://github.com/thoughtsideas/wp-infrastructure/tree/v0.3.0"
             },
-            "time": "2026-06-03T12:27:52+00:00"
+            "time": "2026-08-14T12:24:09+00:00"
         }
     ],
     "packages-dev": [
