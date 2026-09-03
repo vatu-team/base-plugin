@@ -30,7 +30,7 @@
         "@wordpress/core-data": "^7.53.0",
         "@wordpress/create-block": "^4.96.0",
         "@wordpress/i18n": "^6.26.0",
-        "@wordpress/icons": "^15.2.0",
+        "@wordpress/icons": "^15.5.0",
         "@wordpress/env": "^11.13.0",
         "@wordpress/plugins": "^7.51.0",
         "@wordpress/scripts": "^34.1.0",
