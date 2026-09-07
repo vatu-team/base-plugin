@@ -115,6 +115,7 @@ final class ContentSecurityPolicy extends Service implements Registrable
 		$domains = [
 			"'self'",
 			'https://*.cdn-cookieyes.com',
+			'https://cdn-cookieyes.com',
 		];
 
 		$image_src = array_merge( $image_src, $domains );
@@ -132,6 +133,8 @@ final class ContentSecurityPolicy extends Service implements Registrable
 			"'self'",
 			'https://*.cookieyes.com',
 			'https://*.cdn-cookieyes.com',
+			'https://cookieyes.com',
+			'https://cdn-cookieyes.com',
 		];
 
 		$connect_src = array_merge( $connect_src, $google_analytics_domains );
